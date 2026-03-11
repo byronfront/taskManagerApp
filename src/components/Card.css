@@ -1,0 +1,123 @@
+/* Card - tarjeta individual */
+.card-item-container {
+  position: relative;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  width: 200px;
+  min-height: 200px;
+  padding: 1rem;
+  color: var(--text);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card-item-container:hover {
+  box-shadow: 0 0 24px var(--glow);
+  border-color: var(--purple-bright);
+  transform: translateY(-4px);
+}
+
+/* Cabecera: emoji + título (dejar espacio a la derecha para el botón) */
+.card-item-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-right: 2.25rem;
+  min-width: 0;
+}
+
+.card-item-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.card-item-title {
+  font-size: 1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.card-item-header-right {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+}
+
+.card-item-description {
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+/* Meta: prioridad y estado */
+.card-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin-top: auto;
+}
+
+.card-item-meta span {
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 0.2rem 0.45rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.card-item-high {
+  background: rgba(244, 114, 182, 0.2);
+  color: var(--danger);
+  border: 1px solid rgba(244, 114, 182, 0.4);
+}
+
+.card-item-medium {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--magenta-bright);
+  border: 1px solid var(--border);
+}
+
+.card-item-low {
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.card-item-pending {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.card-item-completed {
+  background: rgba(139, 92, 246, 0.25);
+  color: var(--magenta-bright);
+  border: 1px solid var(--purple-bright);
+}
+
+/* Botón eliminar */
+.card-item-container .btn-card-delete {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid rgba(244, 114, 182, 0.4);
+  padding: 0.35rem 0.65rem;
+}
+
+.card-item-container .btn-card-delete:hover {
+  background: rgba(244, 114, 182, 0.15);
+  color: #fce7f3;
+  box-shadow: 0 0 12px rgba(244, 114, 182, 0.3);
+}

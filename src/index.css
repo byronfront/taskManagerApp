@@ -1,0 +1,79 @@
+/* ===== Variables (tema dark morado/magenta) ===== */
+:root {
+  --bg-dark: #0f0a18;
+  --bg-card: #1a1225;
+  --bg-elevated: #251a35;
+  --purple-soft: #2d1b4e;
+  --purple-mid: #6d28d9;
+  --purple-bright: #8b5cf6;
+  --magenta: #c084fc;
+  --magenta-bright: #e879f9;
+  --text: #e9d5ff;
+  --text-muted: #a78bfa;
+  --border: rgba(139, 92, 246, 0.3);
+  --glow: rgba(139, 92, 246, 0.4);
+  --danger: #f472b6;
+  --success: #a78bfa;
+}
+
+/* ===== Reset y base ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: system-ui, -apple-system, sans-serif;
+  line-height: 1.5;
+  color: var(--text);
+  background: var(--bg-dark);
+}
+
+/* ===== Botones base (compartidos) ===== */
+button {
+  background: linear-gradient(135deg, var(--purple-mid), #5b21b6);
+  color: var(--text);
+  border: 1px solid var(--border);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease, transform 0.2s ease;
+}
+
+button:hover {
+  background: linear-gradient(135deg, var(--purple-bright), var(--magenta-bright));
+  box-shadow: 0 0 16px var(--glow);
+  transform: translateY(-2px);
+}
+
+/* ===== Scrollbar ===== */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--purple-mid) var(--bg-card);
+}
+
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: var(--bg-card);
+  border-radius: 10px;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--purple-mid), var(--purple-bright));
+  border-radius: 10px;
+  border: 2px solid var(--bg-card);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--purple-bright), var(--magenta-bright));
+  box-shadow: 0 0 8px var(--glow);
+}
+
+*::-webkit-scrollbar-corner {
+  background: var(--bg-card);
+}

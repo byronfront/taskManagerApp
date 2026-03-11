@@ -1,0 +1,18 @@
+/* Footer */
+.footer {
+  width: 100%;
+  padding: 1rem 1.5rem;
+  background: linear-gradient(180deg, transparent, rgba(45, 27, 78, 0.5));
+  text-align: center;
+  margin-top: auto;
+  border-top: 1px solid var(--border);
+}
+
+.footer__texto {
+  font-size: 0.875rem;
+  color: var(--text-muted);
+  margin: 0;
+  max-width: 1200px;
+  margin-left: auto;
+  margin-right: auto;
+}

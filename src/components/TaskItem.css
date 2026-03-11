@@ -1,0 +1,123 @@
+/* TaskItem - ítem de tarea */
+.task-item {
+  padding: 1rem 1.25rem;
+  margin-bottom: 0.75rem;
+  background: var(--bg-card);
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  color: var(--text);
+  transition: box-shadow 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+.task-item:hover {
+  box-shadow: 0 0 20px var(--glow);
+  border-color: var(--purple-bright);
+  transform: translateY(-2px);
+}
+
+/* Cabecera: izquierda (emoji + título) y derecha (botón) */
+.task-item-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.task-item-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  min-width: 0;
+}
+
+.task-item-emoji {
+  font-size: 1.5rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.task-item-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin: 0;
+  color: var(--text);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-item-header-right {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex-shrink: 0;
+}
+
+.task-item-description {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin: 0;
+  line-height: 1.4;
+}
+
+/* Meta: prioridad y estado */
+.task-item-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.task-item-meta span {
+  font-size: 0.75rem;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+}
+
+.task-item-high {
+  background: rgba(244, 114, 182, 0.2);
+  color: var(--danger);
+  border: 1px solid rgba(244, 114, 182, 0.4);
+}
+
+.task-item-medium {
+  background: rgba(139, 92, 246, 0.2);
+  color: var(--magenta-bright);
+  border: 1px solid var(--border);
+}
+
+.task-item-low {
+  background: rgba(167, 139, 250, 0.15);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.task-item-pending {
+  background: rgba(139, 92, 246, 0.15);
+  color: var(--text-muted);
+  border: 1px solid var(--border);
+}
+
+.task-item-completed {
+  background: rgba(139, 92, 246, 0.25);
+  color: var(--magenta-bright);
+  border: 1px solid var(--purple-bright);
+}
+
+/* Botón eliminar (dentro del header) */
+.task-item .btn-delete {
+  background: transparent;
+  color: var(--danger);
+  border: 1px solid rgba(244, 114, 182, 0.4);
+  padding: 0.4rem 0.75rem;
+}
+
+.task-item .btn-delete:hover {
+  background: rgba(244, 114, 182, 0.15);
+  color: #fce7f3;
+  box-shadow: 0 0 12px rgba(244, 114, 182, 0.3);
+}
