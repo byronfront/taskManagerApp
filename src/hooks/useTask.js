@@ -39,31 +39,42 @@ export const useTask = () => {
   }, []); 
 
   const addTask = (text) => {
-    if (text.trim === '') return;
+    if (typeof text !== 'string' || text.trim() === '') return;
     const newTask = {
       id: Date.now(),
-      text: text,
-      completed: false,
-    }
-    setTasks([...tasks, newTask]);
-  }
+      text: text.trim(),
+      description: '',
+      status: 'todo',
+      priority: 'medium',
+      emoji: '📝',
+    };
+    setTasks((prev) => [...prev, newTask]);
+  };
 
   const toggleTask = (id) => {
-    setTasks(tasks.map((task) =>
-      task.id === id
-        ? { ...task, state: task.state === 'pending' ? 'completed' : 'pending' }
-        : task
-    ));
-  }
+    setTasks((prev) =>
+      prev.map((task) =>
+        task.id === id
+          ? {
+              ...task,
+              status: task.status === 'done' ? 'todo' : 'done',
+            }
+          : task
+      )
+    );
+  };
 
   const deleteTask = (id) => {
-    setTasks(tasks.filter((task) => task.id !== id));
-  }
+    setTasks((prev) => prev.filter((task) => task.id !== id));
+  };
 
   const fileredTasks = tasks.filter((task) => {
     if (fitler === 'all') return true;
-    if (fitler === 'pending') return task.state === 'pending';
-    if (fitler === 'completed') return task.state === 'completed';
+    if (fitler === 'pending') {
+      return task.status === 'todo' || task.status === 'in-progress';
+    }
+    if (fitler === 'completed') return task.status === 'done';
+    return true;
   });
 
 

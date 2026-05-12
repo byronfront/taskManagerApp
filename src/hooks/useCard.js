@@ -39,31 +39,42 @@ export const useCard = () => {
   }, []); 
 
   const addCard = (text) => {
-    if (text.trim === '') return;
+    if (typeof text !== 'string' || text.trim() === '') return;
     const newCard = {
       id: Date.now(),
-      text: text,
-      state: 'pending',
-    }
-    setCards([...cards, newCard]);
-  }
+      text: text.trim(),
+      description: '',
+      status: 'todo',
+      priority: 'medium',
+      emoji: '📝',
+    };
+    setCards((prev) => [...prev, newCard]);
+  };
 
   const toggleItem = (id) => {
-    setCards(cards.map((card) =>
-      card.id === id
-        ? { ...card, state: card.state === 'pending' ? 'completed' : 'pending' }
-        : card
-    ));
-  }
+    setCards((prev) =>
+      prev.map((card) =>
+        card.id === id
+          ? {
+              ...card,
+              status: card.status === 'done' ? 'todo' : 'done',
+            }
+          : card
+      )
+    );
+  };
 
   const deleteItem = (id) => {
-    setCards(cards.filter((card) => card.id !== id));
-  }
-  
+    setCards((prev) => prev.filter((card) => card.id !== id));
+  };
+
   const fileredCards = cards.filter((card) => {
     if (fitler === 'all') return true;
-    if (fitler === 'pending') return card.state === 'pending';
-    if (fitler === 'completed') return card.state === 'completed';
+    if (fitler === 'pending') {
+      return card.status === 'todo' || card.status === 'in-progress';
+    }
+    if (fitler === 'completed') return card.status === 'done';
+    return true;
   });
 
   return { cards: fileredCards, setCards, addCard, toggleItem, deleteItem, setFitler, isLoading };

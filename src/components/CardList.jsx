@@ -29,7 +29,7 @@ function CardList({name}) {
         <>
             <h2>Lista: {name}</h2>
             <div className="list">
-              <button onClick={addCard}>Nueva tarea</button>
+              <button type="button" onClick={() => addCard('Nueva tarea')}>Nueva tarea</button>
             </div>
             <div className="list-form">
               <form className="list-form-input" onSubmit={handleSubmit}>

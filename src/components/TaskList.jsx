@@ -30,7 +30,7 @@ function TaskList({name}) {
         <>
             <h2>Lista: {name}</h2>
             <div className="list">
-              <button onClick={addTask}>Nueva tarea</button>
+              <button type="button" onClick={() => addTask('Nueva tarea')}>Nueva tarea</button>
             </div>
             <div className="list-form">
               <form className="list-form-input" onSubmit={handleSubmit}>
